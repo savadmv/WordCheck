@@ -1,6 +1,7 @@
 package com.test.wordcheck;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.test.wordcheck.Activity.WordDetailActivity;
 import com.test.wordcheck.Model.WordResponse;
 import com.test.wordcheck.Network.APIClient;
 
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WordResponse> call, Response<WordResponse> response) {
                 apContext.setWordResponse(response.body());
+                Intent intent = new Intent(context, WordDetailActivity.class);
+                startActivity(intent);
             }
 
             @Override
