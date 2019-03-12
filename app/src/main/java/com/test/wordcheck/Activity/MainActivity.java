@@ -1,4 +1,4 @@
-package com.test.wordcheck;
+package com.test.wordcheck.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,8 +10,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.test.wordcheck.Activity.WordDetailActivity;
+import com.test.wordcheck.ApiInterface;
+import com.test.wordcheck.App;
 import com.test.wordcheck.Model.WordResponse;
 import com.test.wordcheck.Network.APIClient;
+import com.test.wordcheck.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         actCheck = (CardView) findViewById(R.id.btn_check);
         EtWord = (EditText) findViewById(R.id.et_word);
 
+
         apContext = (App) getApplication();
 
         //intialising Api Client
@@ -51,9 +55,14 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<WordResponse>() {
             @Override
             public void onResponse(Call<WordResponse> call, Response<WordResponse> response) {
-                apContext.setWordResponse(response.body());
-                Intent intent = new Intent(context, WordDetailActivity.class);
-                startActivity(intent);
+                if (response.code() == 200) {
+                    apContext.setWordResponse(response.body());
+                    Intent intent = new Intent(context, WordDetailActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(context, response.message(), Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override

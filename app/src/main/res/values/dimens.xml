@@ -2,7 +2,11 @@
 <resources>
     <dimen name="medeum_padding">8dp</dimen>
     <dimen name="welcome_title_size">24sp</dimen>
+    <dimen name="sub_title_size">21sp</dimen>
     <dimen name="text_content_size">18sp</dimen>
     <dimen name="medium_padding">8dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="card_list_elevation">1dp</dimen>
+    <dimen name="list_item_margin">3dp</dimen>
+    <dimen name="list_item_padding">20dp</dimen>
 </resources>

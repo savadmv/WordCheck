@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Word Check</string>
+    <string name="definition_test">\"Test definition is usd to test how dose it look when it comes to display\"</string>
 </resources>
