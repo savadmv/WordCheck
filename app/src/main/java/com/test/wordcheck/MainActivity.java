@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private CardView actCheck;
     private EditText EtWord;
     private ApiInterface apiInterface;
-    private Context context ;
+    private Context context;
     private App apContext;
 
     @Override
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void callApi(String word) {
-        Call<WordResponse> call = apiInterface.getEveryThing("1137deda68msh69349db8fabd3dbp1c6e88jsna080fbfd15cf",word);
+        Call<WordResponse> call = apiInterface.getEveryThing("1137deda68msh69349db8fabd3dbp1c6e88jsna080fbfd15cf", word);
         call.enqueue(new Callback<WordResponse>() {
             @Override
             public void onResponse(Call<WordResponse> call, Response<WordResponse> response) {
